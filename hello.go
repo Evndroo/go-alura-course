@@ -73,7 +73,7 @@ func startMonitoring() {
 
 	for i := 0; i < MONITORING_QUANTITY; i++ {
 		for _, site := range sites {
-			testaSite(site)
+			testSite(site)
 		}
 
 		time.Sleep(MONITORING_INTERVAL)
@@ -82,7 +82,7 @@ func startMonitoring() {
 	}
 }
 
-func testaSite(site string) {
+func testSite(site string) {
 	result, err := http.Get(site)
 
 	if err != nil || result.StatusCode < 200 || result.StatusCode > 299 {
